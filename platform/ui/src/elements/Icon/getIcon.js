@@ -56,6 +56,7 @@ import objectGroup from './icons/object-group.svg';
 import ohifLogo from './icons/ohif-logo.svg';
 import ohifTextLogo from './icons/ohif-text-logo.svg';
 import radlogo from './icons/radlogo.svg';
+import logo from './icons/logo.svg';
 import oval from './icons/oval.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
@@ -180,6 +181,7 @@ const ICONS = {
   save: saveRegular,
   'envelope-square': envelopeSquare,
   radlogo,
+  logo,
 };
 
 /**

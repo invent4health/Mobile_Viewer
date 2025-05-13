@@ -4,7 +4,13 @@ import { Icon } from '@ohif/ui';
 import React from 'react';
 
 function OHIFLogo() {
-  return <Icon name="radlogo"/>;
+  return (
+    <>
+      <Icon name="logo" className="header-logo" />
+
+      <Icon name="radlogo" className="header-logo-text" />
+    </>
+  );
 }
 
 export default OHIFLogo;
