@@ -1,0 +1,111 @@
+.report-container {
+  padding: 24px;
+  max-width: 100%;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  height: -webkit-fill-available;
+  overflow-y: auto;
+}
+.report-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.patient-details {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.patient-details p {
+  margin: 4px 0;
+}
+
+.editor-section {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.editor-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+#templateDropdown {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+.editor-section .editor {
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-row button {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.rsw-editor {
+  height: calc(100vh - 250px);
+  overflow-y: auto !important;
+}
+.button-row button:hover {
+  background-color: #0056b3;
+}
+@media screen and (max-width: 600px) {
+  .report-container {
+    padding: 4px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+
+  .report-title {
+    font-size: 20px;
+  }
+
+  .editor-section .editor {
+    padding: 8px;
+    min-height: 150px;
+  }
+
+  .button-row button {
+    width: 100%;
+    padding: 12px;
+  }
+  .rsw-editor {
+    height: calc(100vh - 280px);
+  }
+  .patient-details {
+    gap: 8px;
+  }
+}
