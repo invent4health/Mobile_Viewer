@@ -1,0 +1,106 @@
+.OHIFModal
+  background-color: var(--ui-gray-darker)
+  border-color: var(--ui-border-color)
+  color: var(--text-primary-color)
+  border-radius: 6px
+  border: 0
+  position: relative
+  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5)
+  box-shadow: 0 3px 9px rgba(0,0,0,.5)
+  background-clip: padding-box
+  outline: 0
+  display: flex
+  flex-direction: column
+  max-height: 95vh
+
+  // Default mobile styles
+  width: 95vw
+  min-width: 280px
+  height: 95vh
+  margin: 0
+
+  // Mobile-specific adjustments for top-left positioning
+  @media (max-width: 600px)
+    margin: 0
+    top: 0
+    left: 0
+    transform: none // Override any centering transforms
+
+  &.OHIFModal-fullscreen
+    width: 100vw
+    height: 100vh
+    border-radius: 0
+    margin: 0
+
+    @media (max-width: 600px)
+      margin: 0
+      top: 0
+      left: 0
+      transform: none // Ensure no centering transforms in fullscreen
+      position: absolute
+
+  @media (min-width: 768px)
+    width: 600px
+
+    &.OHIFModal-fullscreen
+      width: 100vw
+      height: 98vh
+
+  @media (min-width: 992px)
+    width: 900px
+
+    &.OHIFModal-fullscreen
+      width: 100vw
+      height: 98vh
+
+  // Rest of the styles (header, content, etc.) remain unchanged
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    border-bottom-width: 3px
+    border-bottom-style: solid
+    border-bottom-color: #000000
+    padding: 20px
+    position: relative
+    flex-shrink: 0
+
+    h4
+      color: var(--text-secondary-color)
+      font-size: 20px
+      font-weight: 500
+      line-height: 24px
+      padding-right: 24px
+      margin: 0
+
+    button
+      cursor: pointer
+      margin: -10px 0 0 0
+      padding: 0
+      background-color: transparent
+      border: none
+      color: var(--text-secondary-color)
+      font-size: 25px
+      font-weight: lighter
+
+      &:active,
+      &:focus,
+      &:focus:active
+        background-image: none
+        outline: 0
+        box-shadow: none
+
+  &__content
+    // padding: 20px
+    max-height: 100%
+    overflow-x: hidden
+    overflow-y: auto
+    scrollbar-width: none
+    -ms-overflow-style: none
+    flex: 1
+
+    &::-webkit-scrollbar
+      display: none
+
+    @media (max-width: 480px)
+      padding: 3px

@@ -1,0 +1,44 @@
+.header-brand {
+  height: 30px;
+  text-decoration: none;
+  text-decoration-color: none;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary-color);
+}
+
+.header-brand:hover,
+.header-brand:active,
+.header-band:visited {
+  color: var(--text-primary-color);
+  text-decoration: none;
+}
+
+.header-logo-text {
+  width: 224px;
+  height: auto;
+  margin-left: 8px;
+}
+
+.header-logo {
+  height: 100%;
+  width: 60px;
+  margin-bottom: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-logo-text {
+    fill: transparent;
+    height: 100%;
+    margin: -13px 0px 0px 0px;
+    width: 94px;
+    float: left;
+  }
+  .header-logo {
+    fill: transparent;
+    height: 100%;
+    margin: -30px 0px 26px 13px;
+    width: 50px;
+    float: left;
+  }
+}

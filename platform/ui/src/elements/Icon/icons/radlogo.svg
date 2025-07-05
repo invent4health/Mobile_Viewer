@@ -1,0 +1,18 @@
+
+<svg width="170" height="50" viewBox="2000 100 4000 2000" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(1200, 300) scale(10)">
+    <text transform="matrix(1,0,0,1,-60,45)">
+      <tspan x="0" y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">R</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">A</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">D</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">S</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">H</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">A</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">R</tspan>
+      <tspan y="30" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">E</tspan>
+    </text>
+    <text transform="matrix(1,0,0,1,-60,-15) scale(0.3)">
+      <tspan y="400" font-size="100" fill="#FFF" font-weight="700" font-family="Inter-Bold, Inter">REVOLUTIONIZING RADIOLOGY</tspan>
+    </text>
+  </g>
+</svg>

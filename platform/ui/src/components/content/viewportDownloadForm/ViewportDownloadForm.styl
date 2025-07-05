@@ -1,0 +1,327 @@
+@import '../../../design/styles/common/global.styl'
+@import '../../../design/styles/common/form.styl'
+@import '../../../design/styles/common/button.styl'
+/*
+
+.ViewportDownloadForm
+  display: flex;
+  flex-direction: column;
+  z-index: 1080 !important;
+
+  input, select
+    max-height: 30px;
+
+  #keep-aspect svg
+    margin-top: 3px;
+
+  .title
+    margin: 0;
+    font-weight: bold;
+
+  .file-info-container
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0;
+    border-radius: 5px;
+    padding: 20px 10px;
+    background-color: var(--ui-gray-dark);
+
+    @media screen and (max-width: 1023px)
+      flex-direction: column;
+      align-items: flex-start;
+
+    .width,
+    .height,
+    .file-name,
+    .file-type
+      height: 56px;
+
+    .input-ohif
+      margin: 0 5px;
+
+    .file-name,
+    .file-type
+      .select-ohif, .input-ohif
+        width: 170px;
+
+      .input-ohif-label, .select-ohif-label
+        width: 90px;
+        display: inline-block;
+        @media screen and (max-width: 1023px)
+          width: 120px;
+
+    .dimension-wrapper
+      display: flex;
+      flex-direction: row;
+
+      .dimensions
+        display: flex;
+        flex-direction: column;
+
+        .input-ohif-label
+          width: 120px;
+          display: inline-block;
+
+        .input-ohif
+          @media screen and (max-width: 1023px)
+            width: 170px;
+
+      .keep-aspect-wrapper
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+        height: 86px;
+
+    .show-annotations
+      font-weight: bold;
+      line-height: 30px;
+      input
+        margin-right: 7px;
+        vertical-align: middle;
+      label
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+  .loading-image
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--active-color);
+    font-size: 20px;
+
+    .icon-spin
+      margin-right: 15px;
+
+  .preview
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ui-gray-dark);
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 580px;
+
+    .viewport-preview
+      max-height: 512px;
+      max-width: 512px;
+
+    .preview-header
+      width: 100%;
+      text-align center;
+      font-size: 1.3em;
+      margin: 0 0 10px;
+
+  .actions
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+
+    .btn
+      margin: 0 10px;
+
+  .input-error
+    font-size: 12px;
+    color: red;
+    text-align: center;
+    margin: 3px 0;
+
+
+.modal-dialog
+  height: 100%;
+
+  .modal-body
+    display: flex;
+    flex-direction: column; */
+
+.viewport-download-overlay
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0, 0, 0, 0.8)
+  backdrop-filter: blur(8px)
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: 10000
+  animation: fadeIn 0.3s ease-out
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+.viewport-download-popup
+  background: linear-gradient(135deg, #2d2d2d 0%, #1e1e1e 100%)
+  border-radius: 20px
+  padding: 32px
+  min-width: 400px
+  max-width: 500px
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)
+  animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: -2px
+    left: -2px
+    right: -2px
+    bottom: -2px
+    background: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899, #f59e0b)
+    border-radius: 22px
+    z-index: -1
+    opacity: 0.3
+    filter: blur(4px)
+
+@keyframes slideIn
+  from
+    transform: translateY(30px) scale(0.9)
+    opacity: 0
+  to
+    transform: translateY(0) scale(1)
+    opacity: 1
+
+.popup-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 24px
+
+  h3
+    color: #ffffff
+    font-size: 20px
+    font-weight: 600
+    margin: 0
+
+.close-button
+  background: none
+  border: none
+  color: #888
+  font-size: 24px
+  cursor: pointer
+  padding: 8px
+  border-radius: 50%
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all 0.2s ease
+
+  &:hover
+    background: rgba(255, 255, 255, 0.1)
+    color: #fff
+
+  &:disabled
+    opacity: 0.5
+    cursor: not-allowed
+
+.popup-content
+  text-align: center
+
+.download-progress
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 20px
+
+.spinner
+  width: 64px
+  height: 64px
+  border: 3px solid rgba(255, 255, 255, 0.1)
+  border-top: 3px solid #4f46e5
+  border-radius: 50%
+  animation: spin 1s linear infinite
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
+.success-icon
+  width: 64px
+  height: 64px
+  background: linear-gradient(135deg, #10b981, #059669)
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: white
+  font-size: 28px
+  font-weight: bold
+  animation: successPulse 0.6s ease-out
+
+@keyframes successPulse
+  0%
+    transform: scale(0.8)
+    opacity: 0
+  50%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
+    opacity: 1
+
+.status-text
+  color: #e5e7eb
+  font-size: 16px
+  font-weight: 500
+  margin: 0
+  min-height: 20px
+
+.progress-bar
+  width: 100%
+  height: 6px
+  background: rgba(255, 255, 255, 0.1)
+  border-radius: 3px
+  overflow: hidden
+  margin-top: 16px
+
+.progress-fill
+  height: 100%
+  background: linear-gradient(90deg, #4f46e5, #7c3aed)
+  border-radius: 3px
+  transition: width 0.3s ease
+  width: 0%
+
+  &.animate
+    animation: progressFlow 2s ease-in-out
+
+@keyframes progressFlow
+  0%
+    width: 0%
+  50%
+    width: 70%
+  100%
+    width: 100%
+
+@keyframes fadeOut
+  from
+    opacity: 1
+  to
+    opacity: 0
+
+// Responsive design
+@media (max-width: 480px)
+  .viewport-download-popup
+    min-width: 320px
+    margin: 20px
+    padding: 24px
+
+    .popup-header h3
+      font-size: 18px
+
+    .spinner, .success-icon
+      width: 48px
+      height: 48px
